@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="1024" viewBox="0 0 1120 1024" role="img" aria-labelledby="title desc" lang="ko">
+  <title id="title">DOMADO — 화면은 React, 게임 루프는 Canvas</title>
+  <desc id="desc">브라우저의 React 19 App은 화면 전환·패널·퀘스트 상태를, Canvas 2D GameWorld는 매 프레임 좌표·충돌·카메라를 관리합니다. App은 일시정지를 전달하고 GameWorld는 근접 대상이 바뀔 때 UI에 알립니다. Web Audio는 효과음 버퍼 재사용과 BGM 교차 전환을 맡고 Fullscreen·Orientation API는 전체화면과 화면 방향을 제어합니다. ChatPanel은 Vercel의 POST /api/gemini를 통해 Gemini를 호출하며 키 보관·입력 제한·오류 응답은 서버가 처리합니다. 방명록과 연락 폼은 입력 검사·DOMPurify 뒤 Supabase와 EmailJS에 브라우저에서 직접 연결합니다. 개발과 빌드에는 TypeScript·Vite를, 정적 앱 배포에는 Vercel을 사용합니다.</desc>
+  <metadata>DOMADO 공개 문서용 도식. 텍스트와 도형으로 구성한 SVG. 연결 방향을 5.2초 주기로 반복해서 강조하며 실제 요청 시간이나 실행 순서를 뜻하지 않습니다. 감소 모션 환경에서는 정적으로 표시합니다.</metadata>
+  <defs>
+    <style>
+      text { font-family: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif; letter-spacing: -.4px; }
+      .code { font-family: "Menlo", "SFMono-Regular", Consolas, monospace; letter-spacing: -.3px; }
+
+      .flow-trace {
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        opacity: 0;
+        stroke-dasharray: var(--dash) 130;
+        stroke-dashoffset: var(--dash);
+        animation: var(--flow-name) 5.2s cubic-bezier(.3,0,.3,1) infinite;
+      }
+      .flow-edge { stroke: #ffffff; stroke-width: 8; }
+      .flow-core { stroke: var(--flow-color); stroke-width: 4.5; }
+
+      @keyframes flow-1 {
+        0%, 4.8077% { opacity: 0; stroke-dashoffset: 15; }
+        6.8846% { opacity: 1; }
+        19.3462% { opacity: 1; }
+        22.1154%, 100% { opacity: 0; stroke-dashoffset: -100; }
+      }
+
+      @keyframes flow-2 {
+        0%, 24.0385% { opacity: 0; stroke-dashoffset: 15; }
+        26.1154% { opacity: 1; }
+        38.5769% { opacity: 1; }
+        41.3462%, 100% { opacity: 0; stroke-dashoffset: -100; }
+      }
+
+      @keyframes flow-3 {
+        0%, 44.2308% { opacity: 0; stroke-dashoffset: 25; }
+        45.3846% { opacity: 1; }
+        52.3077% { opacity: 1; }
+        53.8462%, 100% { opacity: 0; stroke-dashoffset: -100; }
+      }
+
+      @keyframes flow-4 {
+        0%, 44.2308% { opacity: 0; stroke-dashoffset: 25; }
+        45.3846% { opacity: 1; }
+        52.3077% { opacity: 1; }
+        53.8462%, 100% { opacity: 0; stroke-dashoffset: -100; }
+      }
+
+      @keyframes flow-5 {
+        0%, 56.7308% { opacity: 0; stroke-dashoffset: 25; }
+        58.2308% { opacity: 1; }
+        67.2308% { opacity: 1; }
+        69.2308%, 100% { opacity: 0; stroke-dashoffset: -100; }
+      }
+
+      @keyframes flow-6 {
+        0%, 59.6154% { opacity: 0; stroke-dashoffset: 25; }
+        61% { opacity: 1; }
+        69.3077% { opacity: 1; }
+        71.1538%, 100% { opacity: 0; stroke-dashoffset: -100; }
+      }
+
+      @keyframes flow-7 {
+        0%, 74.0385% { opacity: 0; stroke-dashoffset: 25; }
+        75.4231% { opacity: 1; }
+        83.7308% { opacity: 1; }
+        85.5769%, 100% { opacity: 0; stroke-dashoffset: -100; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .flow-trace { animation: none; opacity: 0; }
+      }
+    </style>
+    <marker id="blue-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M2 1 8 5 2 9" fill="none" stroke="#1b64da" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <marker id="grey-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M2 1 8 5 2 9" fill="none" stroke="#4e5968" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  </defs>
+  <rect width="1120" height="1024" fill="#ffffff"/>
+<g aria-label="기술과 역할">
+<text x="48" y="56" font-size="17" font-weight="600" fill="#6b7684" text-anchor="start">DOMADO  /  기술과 역할</text>
+<text x="48" y="116" font-size="44" font-weight="700" fill="#191f28" text-anchor="start">화면은 React,</text>
+<text x="48" y="174" font-size="44" font-weight="700" fill="#1b64da" text-anchor="start">게임 루프는 Canvas.</text>
+<text x="48" y="219" font-size="22" font-weight="400" fill="#4e5968" text-anchor="start">상태의 변경 빈도에 따라 책임을 나눴습니다.</text>
+</g>
+<rect x="48" y="256" width="1024" height="388" rx="20" fill="#f2f4f6"/>
+<text x="72" y="299" font-size="23" font-weight="700" fill="#191f28" text-anchor="start">브라우저</text>
+<g aria-label="React의 UI 상태">
+<rect x="72" y="320" width="348" height="160" rx="16" fill="#ffffff"/>
+<text x="96" y="367" font-size="30" font-weight="700" fill="#191f28" text-anchor="start">React 19 · App</text>
+<text x="96" y="409" font-size="21" font-weight="400" fill="#4e5968" text-anchor="start">화면 전환 · 패널 · 퀘스트</text>
+<text x="96" y="449" font-size="19" font-weight="400" fill="#4e5968" text-anchor="start">화면 상태가 바뀔 때 갱신</text>
+</g>
+<g aria-label="Canvas의 게임 상태">
+<rect x="700" y="320" width="348" height="160" rx="16" fill="#ffffff"/>
+<text x="724" y="367" font-size="30" font-weight="700" fill="#191f28" text-anchor="start">Canvas 2D</text>
+<text x="724" y="409" font-size="21" font-weight="400" fill="#4e5968" text-anchor="start">좌표 · 충돌 · 카메라</text>
+<text x="724" y="449" font-size="19" font-weight="400" fill="#4e5968" text-anchor="start">매 프레임 갱신 · rAF / ref</text>
+</g>
+<g aria-label="상태 경계에서의 전달">
+<text x="560" y="356" font-size="19" font-weight="600" fill="#1b64da" text-anchor="middle">일시정지 전달</text>
+<path d="M446 376 H674" fill="none" stroke="#1b64da" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#blue-arrow)"/>
+<path d="M674 426 H446" fill="none" stroke="#1b64da" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#blue-arrow)"/>
+<text x="560" y="457" font-size="19" font-weight="600" fill="#1b64da" text-anchor="middle">근접 대상 변경</text>
+</g>
+<path d="M72 512 H1048" stroke="#d1d6db"/>
+<g aria-label="오디오와 브라우저 API">
+<text x="72" y="557" font-size="24" font-weight="700" fill="#191f28" text-anchor="start">Web Audio</text>
+<text x="72" y="598" font-size="20" font-weight="400" fill="#4e5968" text-anchor="start">효과음 버퍼 재사용 · BGM 교차 전환</text>
+<text x="608" y="557" font-size="24" font-weight="700" fill="#191f28" text-anchor="start">Fullscreen · Orientation</text>
+<text x="608" y="598" font-size="20" font-weight="400" fill="#4e5968" text-anchor="start">전체화면 · 화면 방향 제어</text>
+</g>
+<path d="M296 646 V688" fill="none" stroke="#1b64da" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#blue-arrow)"/>
+<path d="M824 646 V688" fill="none" stroke="#4e5968" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#grey-arrow)"/>
+<g aria-label="Gemini는 서버리스 함수를 경유">
+<rect x="48" y="700" width="496" height="220" rx="20" fill="#e8f3ff"/>
+<text x="72" y="745" font-size="24" font-weight="700" fill="#1b64da" text-anchor="start">AI 안내 · 서버 경유</text>
+<text x="72" y="784" font-size="19" font-weight="400" fill="#4e5968" text-anchor="start" class="code">ChatPanel → POST /api/gemini</text>
+<text x="72" y="833" font-size="26" font-weight="700" fill="#191f28" text-anchor="start">Vercel Serverless</text>
+<path d="M297 825 H333" fill="none" stroke="#1b64da" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#blue-arrow)"/>
+<text x="352" y="833" font-size="26" font-weight="700" fill="#191f28" text-anchor="start">Gemini</text>
+<text x="72" y="886" font-size="20" font-weight="400" fill="#4e5968" text-anchor="start">키 보관 · 입력 제한 · 오류 응답</text>
+</g>
+<g aria-label="Supabase와 EmailJS는 브라우저에서 직접 연동">
+<rect x="576" y="700" width="496" height="220" rx="20" fill="#f2f4f6"/>
+<text x="600" y="745" font-size="24" font-weight="700" fill="#191f28" text-anchor="start">브라우저 직접 연동</text>
+<text x="600" y="792" font-size="21" font-weight="400" fill="#4e5968" text-anchor="start">방명록</text>
+<path d="M704 784 H752" fill="none" stroke="#4e5968" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#grey-arrow)"/>
+<text x="776" y="792" font-size="26" font-weight="600" fill="#191f28" text-anchor="start">Supabase</text>
+<text x="600" y="838" font-size="21" font-weight="400" fill="#4e5968" text-anchor="start">연락 폼</text>
+<path d="M704 830 H752" fill="none" stroke="#4e5968" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#grey-arrow)"/>
+<text x="776" y="838" font-size="26" font-weight="600" fill="#191f28" text-anchor="start">EmailJS</text>
+<text x="600" y="886" font-size="20" font-weight="400" fill="#4e5968" text-anchor="start">입력 검사 · DOMPurify</text>
+</g>
+<path d="M48 956 H1072" stroke="#d1d6db"/>
+<text x="48" y="992" font-size="20" font-weight="400" fill="#4e5968" text-anchor="start">개발·빌드</text>
+<text x="160" y="992" font-size="23" font-weight="600" fill="#191f28" text-anchor="start">TypeScript · Vite</text>
+<text x="696" y="992" font-size="20" font-weight="400" fill="#4e5968" text-anchor="start">배포</text>
+<text x="764" y="992" font-size="23" font-weight="600" fill="#191f28" text-anchor="start">Vercel</text>
+
+<!-- 연결 방향을 5.2초 주기로 반복해서 강조합니다. -->
+<g aria-hidden="true" pointer-events="none">
+<g data-flow="1" data-tone="blue" style="--flow-name:flow-1;--dash:15;--flow-color:#3182f6"><path class="flow-trace flow-edge" d="M446 376 H674" pathLength="100"/><path class="flow-trace flow-core" d="M446 376 H674" pathLength="100"/></g>
+<g data-flow="2" data-tone="blue" style="--flow-name:flow-2;--dash:15;--flow-color:#3182f6"><path class="flow-trace flow-edge" d="M674 426 H446" pathLength="100"/><path class="flow-trace flow-core" d="M674 426 H446" pathLength="100"/></g>
+<g data-flow="3" data-tone="blue" style="--flow-name:flow-3;--dash:25;--flow-color:#3182f6"><path class="flow-trace flow-edge" d="M296 646 V688" pathLength="100"/><path class="flow-trace flow-core" d="M296 646 V688" pathLength="100"/></g>
+<g data-flow="4" data-tone="grey" style="--flow-name:flow-4;--dash:25;--flow-color:#8b95a1"><path class="flow-trace flow-edge" d="M824 646 V688" pathLength="100"/><path class="flow-trace flow-core" d="M824 646 V688" pathLength="100"/></g>
+<g data-flow="5" data-tone="blue" style="--flow-name:flow-5;--dash:25;--flow-color:#3182f6"><path class="flow-trace flow-edge" d="M297 825 H333" pathLength="100"/><path class="flow-trace flow-core" d="M297 825 H333" pathLength="100"/></g>
+<g data-flow="6" data-tone="grey" style="--flow-name:flow-6;--dash:25;--flow-color:#8b95a1"><path class="flow-trace flow-edge" d="M704 784 H752" pathLength="100"/><path class="flow-trace flow-core" d="M704 784 H752" pathLength="100"/></g>
+<g data-flow="7" data-tone="grey" style="--flow-name:flow-7;--dash:25;--flow-color:#8b95a1"><path class="flow-trace flow-edge" d="M704 830 H752" pathLength="100"/><path class="flow-trace flow-core" d="M704 830 H752" pathLength="100"/></g>
+</g>
+</svg>

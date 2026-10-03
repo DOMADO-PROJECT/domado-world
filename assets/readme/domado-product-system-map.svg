@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="936" viewBox="0 0 1120 936" role="img" aria-labelledby="title desc" lang="ko">
+  <title id="title">DOMADO — 탐험할지, 바로 볼지 방문자가 고릅니다</title>
+  <desc id="desc">마을 탐험의 건물·안내 NPC·퀵 메뉴와 모바일 세로 8개 카드는 SectionId와 App의 openSection을 공유합니다. 공용 라우터는 정보 패널 또는 6페이지 PortfolioViewer를 엽니다. 포트폴리오 바로 보기는 시작 화면에서 뷰어로 직접 연결됩니다. 게임 월드는 탐험을 선택한 뒤 초기화합니다.</desc>
+  <metadata>DOMADO 공개 문서용 도식. 텍스트와 도형으로 구성한 SVG. 연결 방향을 5.2초 주기로 반복해서 강조하며 실제 요청 시간이나 실행 순서를 뜻하지 않습니다. 감소 모션 환경에서는 정적으로 표시합니다.</metadata>
+  <defs>
+    <style>
+      text { font-family: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif; letter-spacing: -.4px; }
+      .code { font-family: "Menlo", "SFMono-Regular", Consolas, monospace; letter-spacing: -.3px; }
+
+      .flow-trace {
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        opacity: 0;
+        stroke-dasharray: var(--dash) 130;
+        stroke-dashoffset: var(--dash);
+        animation: var(--flow-name) 5.2s cubic-bezier(.3,0,.3,1) infinite;
+      }
+      .flow-edge { stroke: #ffffff; stroke-width: 8; }
+      .flow-core { stroke: var(--flow-color); stroke-width: 4.5; }
+
+      @keyframes flow-1 {
+        0%, 4.8077% { opacity: 0; stroke-dashoffset: 13; }
+        6.6538% { opacity: 1; }
+        17.7308% { opacity: 1; }
+        20.1923%, 100% { opacity: 0; stroke-dashoffset: -100; }
+      }
+
+      @keyframes flow-2 {
+        0%, 22.1154% { opacity: 0; stroke-dashoffset: 13; }
+        23.9615% { opacity: 1; }
+        35.0385% { opacity: 1; }
+        37.5%, 100% { opacity: 0; stroke-dashoffset: -100; }
+      }
+
+      @keyframes flow-3 {
+        0%, 39.4231% { opacity: 0; stroke-dashoffset: 18; }
+        41.0385% { opacity: 1; }
+        50.7308% { opacity: 1; }
+        52.8846%, 100% { opacity: 0; stroke-dashoffset: -100; }
+      }
+
+      @keyframes flow-4 {
+        0%, 40.3846% { opacity: 0; stroke-dashoffset: 8; }
+        42.8077% { opacity: 1; }
+        57.3462% { opacity: 1; }
+        60.5769%, 100% { opacity: 0; stroke-dashoffset: -100; }
+      }
+
+      @keyframes flow-5 {
+        0%, 64.4231% { opacity: 0; stroke-dashoffset: 13; }
+        66.9615% { opacity: 1; }
+        82.1923% { opacity: 1; }
+        85.5769%, 100% { opacity: 0; stroke-dashoffset: -100; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .flow-trace { animation: none; opacity: 0; }
+      }
+    </style>
+    <marker id="blue-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M2 1 8 5 2 9" fill="none" stroke="#1b64da" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <marker id="grey-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M2 1 8 5 2 9" fill="none" stroke="#4e5968" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  </defs>
+  <rect width="1120" height="936" fill="#ffffff"/>
+<g aria-label="서비스 흐름">
+<text x="48" y="56" font-size="17" font-weight="600" fill="#6b7684" text-anchor="start">DOMADO  /  서비스 흐름</text>
+<text x="48" y="116" font-size="44" font-weight="700" fill="#191f28" text-anchor="start">탐험할지, 바로 볼지</text>
+<text x="48" y="174" font-size="44" font-weight="700" fill="#1b64da" text-anchor="start">방문자가 고릅니다.</text>
+<text x="48" y="219" font-size="22" font-weight="400" fill="#4e5968" text-anchor="start">세 가지 진입 경로가 같은 기록으로 연결됩니다.</text>
+</g>
+<g aria-label="마을 탐험하기">
+<rect x="48" y="264" width="320" height="176" rx="20" fill="#f2f4f6"/>
+<text x="72" y="309" font-size="26" font-weight="700" fill="#191f28" text-anchor="start">마을 탐험하기</text>
+<text x="72" y="347" font-size="20" font-weight="400" fill="#4e5968" text-anchor="start">데스크톱 · 모바일 가로</text>
+<text x="72" y="405" font-size="20" font-weight="400" fill="#4e5968" text-anchor="start">건물 · 안내 NPC · 퀵 메뉴</text>
+</g>
+<g aria-label="카드로 빠르게 보기">
+<rect x="400" y="264" width="320" height="176" rx="20" fill="#f2f4f6"/>
+<text x="424" y="309" font-size="26" font-weight="700" fill="#191f28" text-anchor="start">카드로 빠르게 보기</text>
+<text x="424" y="347" font-size="20" font-weight="400" fill="#4e5968" text-anchor="start">모바일 세로 · 8개 카드</text>
+<text x="424" y="405" font-size="20" font-weight="400" fill="#4e5968" text-anchor="start">카드에서 원하는 기록 선택</text>
+</g>
+<g aria-label="포트폴리오 바로 보기">
+<rect x="752" y="264" width="320" height="176" rx="20" fill="#f2f4f6"/>
+<text x="776" y="309" font-size="26" font-weight="700" fill="#191f28" text-anchor="start">포트폴리오 바로 보기</text>
+<text x="776" y="347" font-size="20" font-weight="400" fill="#4e5968" text-anchor="start">데스크톱 · 모바일</text>
+<text x="776" y="405" font-size="20" font-weight="400" fill="#4e5968" text-anchor="start">게임 초기화 없이 열람</text>
+</g>
+<g aria-label="탐험과 카드는 공용 라우터로 연결">
+<path d="M208 441 V462 Q208 472 218 472 H384" fill="none" stroke="#1b64da" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M560 441 V462 Q560 472 550 472 H384" fill="none" stroke="#1b64da" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M384 472 V502" fill="none" stroke="#1b64da" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#blue-arrow)"/>
+</g>
+<g aria-label="공용 화면 연결 규칙">
+<rect x="48" y="512" width="672" height="104" rx="20" fill="#e8f3ff"/>
+<text x="384" y="555" font-size="27" font-weight="700" fill="#1b64da" text-anchor="middle">같은 화면 연결 규칙</text>
+<text x="384" y="589" font-size="20" font-weight="400" fill="#4e5968" text-anchor="middle" class="code">SectionId → openSection</text>
+</g>
+<g aria-label="정보 패널과 포트폴리오로 분기">
+<path d="M384 617 V652" fill="none" stroke="#1b64da" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M384 652 H306 Q296 652 296 662 V702" fill="none" stroke="#1b64da" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#blue-arrow)"/>
+<path d="M384 652 H738 Q748 652 748 662 V702" fill="none" stroke="#1b64da" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#blue-arrow)"/>
+<path d="M912 441 V702" fill="none" stroke="#1b64da" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#blue-arrow)"/>
+<text x="934" y="572" font-size="18" font-weight="500" fill="#1b64da" text-anchor="start">바로 열기</text>
+</g>
+<g aria-label="정보 패널">
+<rect x="48" y="712" width="496" height="120" rx="20" fill="#f2f4f6"/>
+<text x="80" y="762" font-size="28" font-weight="700" fill="#191f28" text-anchor="start">정보 패널</text>
+<text x="80" y="799" font-size="21" font-weight="400" fill="#4e5968" text-anchor="start">소개 · 프로젝트 · 기술 · 연락 등</text>
+</g>
+<g aria-label="6페이지 포트폴리오">
+<rect x="576" y="712" width="496" height="120" rx="20" fill="#f2f4f6"/>
+<text x="608" y="762" font-size="28" font-weight="700" fill="#191f28" text-anchor="start">6페이지 포트폴리오</text>
+<text x="608" y="799" font-size="20" font-weight="400" fill="#4e5968" text-anchor="start" class="code">PortfolioViewer</text>
+</g>
+<path d="M48 868 H1072" stroke="#d1d6db"/>
+<text x="48" y="904" font-size="21" font-weight="400" fill="#4e5968" text-anchor="start">게임 월드는 마을 탐험을 선택한 뒤 준비합니다.</text>
+
+<!-- 연결 방향을 5.2초 주기로 반복해서 강조합니다. -->
+<g aria-hidden="true" pointer-events="none">
+<g data-flow="1" data-tone="blue" style="--flow-name:flow-1;--dash:13;--flow-color:#3182f6"><path class="flow-trace flow-edge" d="M208 441 V462 Q208 472 218 472 H384 V502" pathLength="100"/><path class="flow-trace flow-core" d="M208 441 V462 Q208 472 218 472 H384 V502" pathLength="100"/></g>
+<g data-flow="2" data-tone="blue" style="--flow-name:flow-2;--dash:13;--flow-color:#3182f6"><path class="flow-trace flow-edge" d="M560 441 V462 Q560 472 550 472 H384 V502" pathLength="100"/><path class="flow-trace flow-core" d="M560 441 V462 Q560 472 550 472 H384 V502" pathLength="100"/></g>
+<g data-flow="3" data-tone="blue" style="--flow-name:flow-3;--dash:18;--flow-color:#3182f6"><path class="flow-trace flow-edge" d="M384 617 V652 H306 Q296 652 296 662 V702" pathLength="100"/><path class="flow-trace flow-core" d="M384 617 V652 H306 Q296 652 296 662 V702" pathLength="100"/></g>
+<g data-flow="4" data-tone="blue" style="--flow-name:flow-4;--dash:8;--flow-color:#3182f6"><path class="flow-trace flow-edge" d="M384 617 V652 H738 Q748 652 748 662 V702" pathLength="100"/><path class="flow-trace flow-core" d="M384 617 V652 H738 Q748 652 748 662 V702" pathLength="100"/></g>
+<g data-flow="5" data-tone="blue" style="--flow-name:flow-5;--dash:13;--flow-color:#3182f6"><path class="flow-trace flow-edge" d="M912 441 V702" pathLength="100"/><path class="flow-trace flow-core" d="M912 441 V702" pathLength="100"/></g>
+</g>
+</svg>
