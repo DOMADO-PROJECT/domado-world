@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="910" viewBox="0 0 640 910" role="img" aria-labelledby="title desc" xml:lang="ko">
+<title id="title">DOMADO WORLD · 직접 기여한 범위와 외부 원본</title>
+<desc id="desc">제품 콘셉트와 정보 구조, 진입 경로, React 인터페이스, 월드 구성과 픽셀 가공, 상호작용·게임 시스템과 사운드 수명 주기를 직접 설계하고 구현했습니다. 픽셀 원화는 Cute Fantasy by Kenmi, 외부 음원은 CC0와 Pixabay 출처이며 자세한 이용 범위는 NOTICE에 기록했습니다. 원본 제작과 직접 기여한 작업을 구분한 정적 도표입니다.</desc>
+<style>
+text{font-family:"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif}
+.numeric{font-variant-numeric:tabular-nums}
+
+</style>
+<rect x="1" y="1" width="638" height="908" fill="#fff" rx="10" stroke="#e5e8eb"/>
+<g id="brand-icon" transform="translate(20.7 25.84) scale(1.54)" shape-rendering="crispEdges" aria-hidden="true">
+  <path fill="#7f2f2f" d="M7 9h10v2H7zM5 11h14v4H5zM7 15h12v2H7zM9 17h8v2H9z" />
+  <path fill="#943936" d="M7 9h2v6H7z" />
+  <path fill="#a8433d" d="M9 9h2v2H9zm6 0h2v2h-2zM9 11h4v2H9zm6 0h4v2h-4zM7 13h2v2H7zm10 0h2v4h-2z" />
+  <path fill="#b9564b" d="M9 13h4v2H9zm6 0h2v2h-2zM11 15h6v2h-6z" />
+  <path fill="#a8433d" d="M13 11h2v4h-2zM9 15h2v2H9z" />
+  <path fill="#2f5137" d="M11 5h2v6h-2z" />
+  <path fill="#456d4a" d="M7 5h2v2H7zm2 2h2v2H9zm4 0h4v2h-4zm0 2h2v2h-2z" />
+</g>
+<text x="63" y="56" font-size="30" font-weight="750" fill="#191f28">DOMADO WORLD</text>
+<text x="608" y="55" font-size="20" font-weight="600" fill="#33664e" text-anchor="end">직접 만든 범위</text>
+<path d="M32 80H608" fill="none" stroke="#e5e8eb"/>
+<text x="32" y="156" font-size="22" font-weight="500" fill="#566270">01</text>
+<text x="84" y="156" font-size="30" font-weight="650" fill="#191f28">제품 · 인터페이스</text>
+<text x="84" y="211" font-size="24" font-weight="400" fill="#566270">콘셉트 · 정보 구조 · 진입 경로</text>
+<text x="84" y="249" font-size="24" font-weight="400" fill="#566270">React 패널 · 모바일 홈 · 포트폴리오 연결</text>
+<path d="M84 295H608" fill="none" stroke="#eef1f5"/>
+<text x="32" y="354" font-size="22" font-weight="500" fill="#566270">02</text>
+<text x="84" y="354" font-size="30" font-weight="650" fill="#191f28">월드 · 픽셀 가공</text>
+<text x="84" y="409" font-size="24" font-weight="400" fill="#566270">구역 · 동선 · 깊이 · 충돌 · 상호작용</text>
+<text x="84" y="447" font-size="24" font-weight="400" fill="#566270">원본 가공 · 타일 조합 · 오토타일 규칙</text>
+<path d="M84 493H608" fill="none" stroke="#eef1f5"/>
+<text x="32" y="552" font-size="22" font-weight="500" fill="#566270">03</text>
+<text x="84" y="552" font-size="30" font-weight="650" fill="#191f28">게임 시스템 · 사운드</text>
+<text x="84" y="607" font-size="24" font-weight="400" fill="#566270">이동 · 대화 · 퀘스트 · 전투 · 상태 관리</text>
+<text x="84" y="645" font-size="24" font-weight="400" fill="#566270">음원 선별 · 재생 시점 · 버퍼 · 교차 전환</text>
+<path d="M32 720H608" fill="none" stroke="#e5e8eb"/>
+<text x="32" y="768" font-size="26" font-weight="650" fill="#191f28">외부 원본</text>
+<text x="32" y="811" font-size="24" font-weight="400" fill="#566270">픽셀 원화 · Cute Fantasy by Kenmi</text>
+<text x="32" y="848" font-size="24" font-weight="400" fill="#566270">음원 · CC0 · Pixabay</text>
+<text x="32" y="882" font-size="22" font-weight="400" fill="#566270">세부 출처와 이용 범위는 NOTICE에 표기했습니다.</text>
+</svg>

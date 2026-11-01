@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="1016" viewBox="0 0 1280 1016" role="img" aria-labelledby="title desc" xml:lang="ko">
+<title id="title">DOMADO WORLD · React와 Canvas의 상태 경계</title>
+<desc id="desc">Canvas GameWorld의 프레임 상태는 ref에, 화면 상태는 React App에 둡니다. 월드의 onInteract, QuickMenu, MobileHome은 openSection으로 연결됩니다. App은 paused와 renderSuspended를 전달합니다. PANELS는 지연 로드하며 PortfolioViewer는 외부 세로 스크롤 앱을 iframe으로 표시하고 history와 postMessage의 origin/source를 확인합니다. Gemini는 Vercel /api/gemini를 경유하고 Supabase와 EmailJS는 브라우저에서 직접 요청합니다. Web Audio는 필요할 때 디코딩하고 버퍼를 재사용합니다. 12초 모션은 정보 패널 열기·닫기와 메뉴에서 포트폴리오 열기를 예시로 보여줍니다. 하단 세 경로는 각 패널에서 발생하는 별도 요청을 함께 보여주며 실제 실행 시간이나 RAF 전체 중단을 뜻하지 않습니다. 브라우저와 서버·외부 서비스 영역을 구분하고, 신호가 도착한 카드를 잠깐 강조합니다. 모션 감소 설정에서도 구성 요소와 화살표를 읽을 수 있습니다.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#566270" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<filter id="node-shadow" x="-5%" y="-15%" width="110%" height="135%" color-interpolation-filters="sRGB"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#191f28" flood-opacity=".06"/></filter></defs>
+<style>
+text{font-family:"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif}
+.numeric{font-variant-numeric:tabular-nums}
+.wire{fill:none;stroke:#566270;stroke-width:1.8;stroke-linejoin:round;marker-end:url(#arrow)}
+.both{marker-start:url(#arrow)}
+.node-pulse{fill:none;stroke:#33664e;stroke-width:1.8;opacity:0;pointer-events:none}
+.trace{fill:none;stroke:#33664e;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;opacity:0}
+.trace.secondary{stroke-width:2.2}
+@media (prefers-reduced-motion: no-preference){
+ .trace{animation:signal 12s linear infinite both;animation-delay:var(--at)}
+ .node-pulse{animation:node-arrival 12s linear infinite both;animation-delay:var(--at)}
+}
+/* 하단 세 요청은 각각 패널에서 출발하는 독립 예시다. 길이가 달라도 도착 강조 시점은 같다. */
+@keyframes signal{0%{stroke-dashoffset:1;opacity:0}.2%{opacity:1}6%,7%{stroke-dashoffset:0;opacity:1}9%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes node-arrival{0%,6%,15%,100%{opacity:0}7%,11%{opacity:1}}
+@media (prefers-reduced-motion: reduce){.trace,.node-pulse{animation:none;opacity:0}}
+</style>
+<rect x="1" y="1" width="1278" height="1014" fill="#fff" rx="10" stroke="#e5e8eb"/>
+<g id="brand-icon" transform="translate(26.75 23.69) scale(1.65)" shape-rendering="crispEdges" aria-hidden="true">
+  <path fill="#7f2f2f" d="M7 9h10v2H7zM5 11h14v4H5zM7 15h12v2H7zM9 17h8v2H9z" />
+  <path fill="#943936" d="M7 9h2v6H7z" />
+  <path fill="#a8433d" d="M9 9h2v2H9zm6 0h2v2h-2zM9 11h4v2H9zm6 0h4v2h-4zM7 13h2v2H7zm10 0h2v4h-2z" />
+  <path fill="#b9564b" d="M9 13h4v2H9zm6 0h2v2h-2zM11 15h6v2h-6z" />
+  <path fill="#a8433d" d="M13 11h2v4h-2zM9 15h2v2H9z" />
+  <path fill="#2f5137" d="M11 5h2v6h-2z" />
+  <path fill="#456d4a" d="M7 5h2v2H7zm2 2h2v2H9zm4 0h4v2h-4zm0 2h2v2h-2z" />
+</g>
+<text x="71" y="56" font-size="32" font-weight="750" fill="#191f28">DOMADO WORLD</text>
+<text x="381" y="54" font-size="16" font-weight="650" fill="#33664e">ARCHITECTURE</text>
+<text x="1240" y="54" font-size="16" font-weight="400" fill="#566270" text-anchor="end">월드는 Canvas, 화면은 React</text>
+<path d="M40 80H1240" fill="none" stroke="#e5e8eb"/>
+<text x="64" y="126" font-size="16" font-weight="550" fill="#566270">브라우저</text>
+<path d="M364 236H484" class="wire"/>
+<path d="M484 302H364" class="wire"/>
+<path d="M916 248H796" class="wire"/>
+<path d="M640 348V384Q640 396 628 396H332Q320 396 320 408V444" class="wire"/>
+<path d="M640 348V384Q640 396 652 396H948Q960 396 960 408V444" class="wire"/>
+<text x="424" y="214" font-size="16" font-weight="400" fill="#566270" text-anchor="middle">onInteract</text>
+<text x="424" y="278" font-size="15" font-weight="400" fill="#566270" text-anchor="middle">paused /</text>
+<text x="424" y="326" font-size="15" font-weight="400" fill="#566270" text-anchor="middle">renderSuspended</text>
+<text x="856" y="224" font-size="16" font-weight="400" fill="#566270" text-anchor="middle">항목 선택</text>
+<text x="352" y="430" font-size="16" font-weight="400" fill="#566270">정보 열기</text>
+<text x="992" y="430" font-size="16" font-weight="400" fill="#566270">portfolio 선택</text>
+<g class="node" data-name="Canvas 2D">
+<rect x="64" y="160" width="288" height="176" fill="#fff" rx="8" filter="url(#node-shadow)"/>
+<path d="M72 160H344Q352 160 352 168V216H64V168Q64 160 72 160Z" fill="#eef5f0"/>
+<text x="84" y="197" font-size="24" font-weight="650" fill="#191f28">Canvas 2D</text>
+<text x="84" y="254" font-size="18" font-weight="400" fill="#566270">GameWorld · RAF + ref</text>
+<text x="84" y="284" font-size="18" font-weight="400" fill="#566270">좌표 · 충돌 · 카메라</text>
+<rect x="64" y="160" width="288" height="176" rx="8" class="node-pulse" style="--at:1.1s" aria-hidden="true"/>
+<rect x="64" y="160" width="288" height="176" rx="8" class="node-pulse" style="--at:6.3s" aria-hidden="true"/>
+<rect x="64" y="160" width="288" height="176" rx="8" class="node-pulse" style="--at:8.7s" aria-hidden="true"/>
+</g>
+<g class="node" data-name="React App">
+<rect x="496" y="160" width="288" height="176" fill="#fff" rx="8" filter="url(#node-shadow)"/>
+<path d="M504 160H776Q784 160 784 168V216H496V168Q496 160 504 160Z" fill="#33664e"/>
+<text x="516" y="197" font-size="24" font-weight="650" fill="#fff">React App</text>
+<text x="516" y="254" font-size="18" font-weight="400" fill="#566270">화면 · 패널 · 진입 상태</text>
+<text x="516" y="284" font-size="18" font-weight="400" fill="#566270">SectionId → openSection</text>
+<rect x="496" y="160" width="288" height="176" rx="8" class="node-pulse" style="--at:0s" aria-hidden="true"/>
+<rect x="496" y="160" width="288" height="176" rx="8" class="node-pulse" style="--at:5.2s" aria-hidden="true"/>
+<rect x="496" y="160" width="288" height="176" rx="8" class="node-pulse" style="--at:7.6s" aria-hidden="true"/>
+</g>
+<g class="node" data-name="메뉴 · 모바일 홈">
+<rect x="928" y="160" width="288" height="176" fill="#fff" rx="8" filter="url(#node-shadow)"/>
+<path d="M936 160H1208Q1216 160 1216 168V216H928V168Q928 160 936 160Z" fill="#eef5f0"/>
+<text x="948" y="197" font-size="24" font-weight="650" fill="#191f28">메뉴 · 모바일 홈</text>
+<text x="948" y="254" font-size="18" font-weight="400" fill="#566270">QuickMenu · MobileHome</text>
+<text x="948" y="284" font-size="18" font-weight="400" fill="#566270">8개 항목 → openSection</text>
+<rect x="928" y="160" width="288" height="176" rx="8" class="node-pulse" style="--at:6.8s" aria-hidden="true"/>
+</g>
+<g class="node" data-name="정보 패널 · PANELS">
+<rect x="64" y="456" width="512" height="184" fill="#fff" rx="8" filter="url(#node-shadow)"/>
+<path d="M72 456H568Q576 456 576 464V512H64V464Q64 456 72 456Z" fill="#eef5f0"/>
+<text x="84" y="493" font-size="24" font-weight="650" fill="#191f28">정보 패널 · PANELS</text>
+<text x="84" y="550" font-size="18" font-weight="400" fill="#566270">소개 · 프로젝트 · 기술 · 대화 · 방명록 · 연락</text>
+<text x="84" y="580" font-size="18" font-weight="400" fill="#566270">React.lazy · 필요할 때 로드</text>
+<rect x="64" y="456" width="512" height="184" rx="8" class="node-pulse" style="--at:1.1s" aria-hidden="true"/>
+</g>
+<g class="node" data-name="PortfolioViewer">
+<rect x="704" y="456" width="512" height="184" fill="#fff" rx="8" filter="url(#node-shadow)"/>
+<path d="M712 456H1208Q1216 456 1216 464V512H704V464Q704 456 712 456Z" fill="#eef5f0"/>
+<text x="724" y="493" font-size="24" font-weight="650" fill="#191f28">PortfolioViewer</text>
+<text x="724" y="550" font-size="18" font-weight="400" fill="#566270">외부 세로 스크롤 앱 · iframe · /portfolio history</text>
+<text x="724" y="580" font-size="18" font-weight="400" fill="#566270">postMessage · origin/source 확인</text>
+<rect x="704" y="456" width="512" height="184" rx="8" class="node-pulse" style="--at:8.7s" aria-hidden="true"/>
+</g>
+<path d="M64 752H1216" fill="none" stroke="#e5e8eb" stroke-dasharray="4 6"/>
+<text x="64" y="780" font-size="16" font-weight="550" fill="#566270">서버 · 외부 서비스</text>
+<path d="M320 652V692Q320 704 308 704H220Q208 704 208 716V788" class="wire"/>
+<path d="M320 652V692Q320 704 332 704H628Q640 704 640 716V788" class="wire"/>
+<path d="M320 652V692Q320 704 332 704H1060Q1072 704 1072 716V788" class="wire"/>
+<text x="208" y="686" font-size="16" font-weight="500" fill="#566270" text-anchor="middle">AI 대화</text>
+<text x="640" y="686" font-size="16" font-weight="500" fill="#566270" text-anchor="middle">방명록 · 브라우저 직접</text>
+<text x="1072" y="686" font-size="16" font-weight="500" fill="#566270" text-anchor="middle">연락 · 브라우저 직접</text>
+<g class="node" data-name="Vercel Functions">
+<rect x="64" y="800" width="288" height="156" fill="#fff" rx="8" filter="url(#node-shadow)"/>
+<path d="M72 800H344Q352 800 352 808V856H64V808Q64 800 72 800Z" fill="#eef5f0"/>
+<text x="84" y="837" font-size="24" font-weight="650" fill="#191f28">Vercel Functions</text>
+<text x="84" y="894" font-size="18" font-weight="400" fill="#566270">/api/gemini → Gemini</text>
+<text x="84" y="924" font-size="18" font-weight="400" fill="#566270">입력 제한 · API 키 보관</text>
+<rect x="64" y="800" width="288" height="156" rx="8" class="node-pulse" style="--at:2.4s" aria-hidden="true"/>
+</g>
+<g class="node" data-name="Supabase">
+<rect x="496" y="800" width="288" height="156" fill="#fff" rx="8" filter="url(#node-shadow)"/>
+<path d="M504 800H776Q784 800 784 808V856H496V808Q496 800 504 800Z" fill="#eef5f0"/>
+<text x="516" y="837" font-size="24" font-weight="650" fill="#191f28">Supabase</text>
+<text x="516" y="894" font-size="18" font-weight="400" fill="#566270">방명록 읽기·쓰기</text>
+<text x="516" y="924" font-size="18" font-weight="400" fill="#566270">GuestbookPanel에서 요청</text>
+<rect x="496" y="800" width="288" height="156" rx="8" class="node-pulse" style="--at:2.4s" aria-hidden="true"/>
+</g>
+<g class="node" data-name="EmailJS">
+<rect x="928" y="800" width="288" height="156" fill="#fff" rx="8" filter="url(#node-shadow)"/>
+<path d="M936 800H1208Q1216 800 1216 808V856H928V808Q928 800 936 800Z" fill="#eef5f0"/>
+<text x="948" y="837" font-size="24" font-weight="650" fill="#191f28">EmailJS</text>
+<text x="948" y="894" font-size="18" font-weight="400" fill="#566270">연락 메일 전송</text>
+<text x="948" y="924" font-size="18" font-weight="400" fill="#566270">ContactPanel에서 요청</text>
+<rect x="928" y="800" width="288" height="156" rx="8" class="node-pulse" style="--at:2.4s" aria-hidden="true"/>
+</g>
+<text x="64" y="990" font-size="16" font-weight="400" fill="#566270">Web Audio · 지연 디코딩 · 버퍼 재사용</text>
+<text x="1216" y="990" font-size="16" font-weight="400" fill="#566270" text-anchor="end">구현 기준 2026.10</text>
+<path d="M364 236H484" class="trace" pathLength="1" style="--at:0s" aria-hidden="true"/>
+<path d="M640 348V384Q640 396 628 396H332Q320 396 320 408V444" class="trace" pathLength="1" style="--at:1.1s" aria-hidden="true"/>
+<path d="M484 302H364" class="trace" pathLength="1" style="--at:1.1s" aria-hidden="true"/>
+<path d="M320 444V408Q320 396 332 396H628Q640 396 640 384V348" class="trace" pathLength="1" style="--at:5.2s" aria-hidden="true"/>
+<path d="M484 302H364" class="trace" pathLength="1" style="--at:6.3s" aria-hidden="true"/>
+<path d="M320 652V692Q320 704 308 704H220Q208 704 208 716V788" class="trace secondary" pathLength="1" style="--at:2.4s" aria-hidden="true"/>
+<path d="M320 652V692Q320 704 332 704H628Q640 704 640 716V788" class="trace secondary" pathLength="1" style="--at:2.4s" aria-hidden="true"/>
+<path d="M320 652V692Q320 704 332 704H1060Q1072 704 1072 716V788" class="trace secondary" pathLength="1" style="--at:2.4s" aria-hidden="true"/>
+<path d="M916 248H796" class="trace secondary" pathLength="1" style="--at:7.6s" aria-hidden="true"/>
+<path d="M640 348V384Q640 396 652 396H948Q960 396 960 408V444" class="trace secondary" pathLength="1" style="--at:8.7s" aria-hidden="true"/>
+<path d="M484 302H364" class="trace" pathLength="1" style="--at:8.7s" aria-hidden="true"/>
+</svg>

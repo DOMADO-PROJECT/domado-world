@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="652" viewBox="0 0 1280 652" role="img" aria-labelledby="title desc" xml:lang="ko">
+<title id="title">DOMADO WORLD · 세 가지 이용 경로</title>
+<desc id="desc">마을 탐험, 포트폴리오 보기, 모바일 세로 카드의 세 가지 대안 경로입니다. 마을에서는 걷고 대화하며 정보 패널을 열고, 바로 보기에서는 세로 스크롤 포트폴리오를 읽습니다. 모바일 세로에서는 8개 카드로 화면 회전 없이 열람합니다. A·B·C는 순서대로 거치는 단계가 아닙니다. 4초 주기로 세 경로를 동시에 강조하며, 선이 꼬리에서 끝까지 그려진 뒤 화살표 머리가 나타납니다. 모션 감소 설정에서도 모든 경로를 읽을 수 있습니다.</desc>
+<style>
+text{font-family:"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif}
+.numeric{font-variant-numeric:tabular-nums}
+.route-active,.route-trace,.route-head{opacity:0}
+.route-trace,.route-head{fill:none;stroke:#33664e;stroke-width:2}
+.route-trace{stroke-dasharray:1;stroke-dashoffset:1}
+@media (prefers-reduced-motion: no-preference){
+ .route-active{animation:route-focus 4s linear infinite both}
+ .route-trace{animation:route-trace 4s linear infinite both}
+ .route-head{animation:route-head 4s linear infinite both}
+}
+/* 별도 경로에서 점선이 다시 시작되지 않도록 머리는 선이 완성된 뒤 표시한다. */
+@keyframes route-focus{0%,90%,100%{opacity:0}10%,75%{opacity:1}}
+@keyframes route-trace{0%{stroke-dashoffset:1;opacity:0}10%{stroke-dashoffset:1;opacity:1}45%,75%{stroke-dashoffset:0;opacity:1}90%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes route-head{0%,45%,90%,100%{opacity:0}50%,75%{opacity:1}}
+@media (prefers-reduced-motion: reduce){.route-active,.route-trace,.route-head{animation:none;opacity:0}}
+</style>
+<rect x="1" y="1" width="1278" height="650" fill="#fff" rx="10" stroke="#e5e8eb"/>
+<g id="brand-icon" transform="translate(26.75 23.69) scale(1.65)" shape-rendering="crispEdges" aria-hidden="true">
+  <path fill="#7f2f2f" d="M7 9h10v2H7zM5 11h14v4H5zM7 15h12v2H7zM9 17h8v2H9z" />
+  <path fill="#943936" d="M7 9h2v6H7z" />
+  <path fill="#a8433d" d="M9 9h2v2H9zm6 0h2v2h-2zM9 11h4v2H9zm6 0h4v2h-4zM7 13h2v2H7zm10 0h2v4h-2z" />
+  <path fill="#b9564b" d="M9 13h4v2H9zm6 0h2v2h-2zM11 15h6v2h-6z" />
+  <path fill="#a8433d" d="M13 11h2v4h-2zM9 15h2v2H9z" />
+  <path fill="#2f5137" d="M11 5h2v6h-2z" />
+  <path fill="#456d4a" d="M7 5h2v2H7zm2 2h2v2H9zm4 0h4v2h-4zm0 2h2v2h-2z" />
+</g>
+<text x="71" y="56" font-size="32" font-weight="750" fill="#191f28">DOMADO WORLD</text>
+<text x="381" y="54" font-size="16" font-weight="650" fill="#33664e">USER FLOW</text>
+<text x="1240" y="54" font-size="16" font-weight="400" fill="#566270" text-anchor="end">세 가지 이용 경로</text>
+<path d="M40 80H1240" fill="none" stroke="#e5e8eb"/>
+<text x="40" y="130" font-size="20" font-weight="400" fill="#566270">편한 경로 하나로 시작합니다.</text>
+<g data-route="A">
+<text x="64" y="229" font-size="20" font-weight="500" fill="#566270" text-anchor="middle">A</text>
+<text x="128" y="229" font-size="26" font-weight="650" fill="#191f28">마을 탐험하기</text>
+<text x="128" y="266" font-size="18" font-weight="400" fill="#566270">데스크톱 · 모바일 가로</text>
+<text x="456" y="229" font-size="22" font-weight="400" fill="#566270">걷기 · 대화 · 조사</text>
+<text x="916" y="229" font-size="24" font-weight="650" fill="#191f28">소개 · 프로젝트 · 기술</text>
+<text x="916" y="266" font-size="18" font-weight="400" fill="#566270">건물과 안내 NPC에서 정보 열기</text>
+<path d="M128 304H1240" fill="none" stroke="#eef1f5"/>
+<path d="M746 222H876 M870 217L876 222L870 227" fill="none" stroke="#aeb7c2" stroke-width="1.2"/>
+<g class="route-active" aria-hidden="true">
+<text x="64" y="229" font-size="20" font-weight="600" fill="#33664e" text-anchor="middle">A</text>
+</g>
+<path d="M746 222H876" class="route-trace" pathLength="1" aria-hidden="true"/>
+<path d="M870 217L876 222L870 227" class="route-head" aria-hidden="true"/>
+</g>
+<g data-route="B">
+<text x="64" y="377" font-size="20" font-weight="500" fill="#566270" text-anchor="middle">B</text>
+<text x="128" y="377" font-size="26" font-weight="650" fill="#191f28">포트폴리오 보기</text>
+<text x="128" y="414" font-size="18" font-weight="400" fill="#566270">데스크톱 · 모바일</text>
+<text x="456" y="377" font-size="22" font-weight="400" fill="#566270">게임 없이 바로 열람</text>
+<text x="916" y="377" font-size="24" font-weight="650" fill="#191f28">세로 스크롤 포트폴리오</text>
+<text x="916" y="414" font-size="18" font-weight="400" fill="#566270">문서를 읽으며 프로젝트 살펴보기</text>
+<path d="M128 452H1240" fill="none" stroke="#eef1f5"/>
+<path d="M746 370H876 M870 365L876 370L870 375" fill="none" stroke="#aeb7c2" stroke-width="1.2"/>
+<g class="route-active" aria-hidden="true">
+<text x="64" y="377" font-size="20" font-weight="600" fill="#33664e" text-anchor="middle">B</text>
+</g>
+<path d="M746 370H876" class="route-trace" pathLength="1" aria-hidden="true"/>
+<path d="M870 365L876 370L870 375" class="route-head" aria-hidden="true"/>
+</g>
+<g data-route="C">
+<text x="64" y="525" font-size="20" font-weight="500" fill="#566270" text-anchor="middle">C</text>
+<text x="128" y="525" font-size="26" font-weight="650" fill="#191f28">세로 모드로 보기</text>
+<text x="128" y="562" font-size="18" font-weight="400" fill="#566270">모바일 세로</text>
+<text x="456" y="525" font-size="22" font-weight="400" fill="#566270">8개 카드 중 선택</text>
+<text x="916" y="525" font-size="24" font-weight="650" fill="#191f28">정보 패널 · 포트폴리오</text>
+<text x="916" y="562" font-size="18" font-weight="400" fill="#566270">화면을 돌리지 않고 열람하기</text>
+<path d="M746 518H876 M870 513L876 518L870 523" fill="none" stroke="#aeb7c2" stroke-width="1.2"/>
+<g class="route-active" aria-hidden="true">
+<text x="64" y="525" font-size="20" font-weight="600" fill="#33664e" text-anchor="middle">C</text>
+</g>
+<path d="M746 518H876" class="route-trace" pathLength="1" aria-hidden="true"/>
+<path d="M870 513L876 518L870 523" class="route-head" aria-hidden="true"/>
+</g>
+</svg>

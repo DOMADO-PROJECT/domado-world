@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="1920" viewBox="0 0 640 1920" role="img" aria-labelledby="title desc" xml:lang="ko">
+<title id="title">DOMADO WORLD · 대표 성능 지표 6개</title>
+<desc id="desc">1~7차에서 고른 대표 성능 지표 6개입니다. 모바일 LCP 6.92초에서 3.46초, 첫 화면 총 전송량 1,606,640B에서 433,644B, 메인 JS gzip 214,803B에서 114,888B, 데스크톱 PSI TBT 860ms에서 0ms, 모바일 패널 뒤 drawImage 36,720에서 238회/2초, 120Hz 모바일의 20ms 초과 프레임 간격 22에서 0회/10초로 줄었습니다. 모바일 LCP·전송량은 각 5회 중앙값이며 데스크톱 TBT는 별도 측정으로 개선 후 2회 모두 0ms였습니다. 4차 JS는 2026년 8월 4일 당시 빌드 기록입니다. 6차는 당시 3회 중앙값이며 일시정지 상태만 비교합니다. 1차는 10초 관측 구간에 한정합니다. 각 행에 최적화 방법을 표시하며 모바일 LCP에는 글꼴·초기 자산 최적화, 데스크톱 TBT에는 월드 초기화 유예를 연결합니다. 각 항목의 개선 전을 100으로 놓으며 개선율을 합산하지 않습니다. 2026년 7~8월의 서로 다른 환경 기록이며 현재 배포 실측이나 전체 성능 개선율이 아닙니다. 7차 모바일 FCP는 2.10초에서 2.40초로 증가했습니다. 값과 감소율은 고정하고 막대만 약 2.3초 동안 최종 비율로 줄인 뒤 오래 유지하는 12초 모션을 반복합니다. 중간 길이는 측정값이 아닙니다. 모션 감소 설정에서는 최종 비율을 정적으로 표시합니다.</desc>
+<metadata>{&quot;source&quot;:&quot;../../docs/engineering-cases.md#1-일곱-차례의-성능-개선&quot;,&quot;recorded&quot;:&quot;2026-07~2026-08&quot;,&quot;comparison&quot;:&quot;Independent before/after comparisons; not additive; not current production measurements.&quot;,&quot;metrics&quot;:[{&quot;id&quot;:&quot;lcp&quot;,&quot;round&quot;:7,&quot;title&quot;:&quot;모바일 콘텐츠 표시 · LCP&quot;,&quot;before&quot;:6.92,&quot;after&quot;:3.46,&quot;unit&quot;:&quot;초&quot;,&quot;beforeLabel&quot;:&quot;6.92초&quot;,&quot;afterLabel&quot;:&quot;3.46초&quot;,&quot;delta&quot;:&quot;50.0% 감소&quot;,&quot;action&quot;:&quot;글꼴 로드 시점 · 초기 자산 최적화&quot;,&quot;conditions&quot;:[&quot;Lighthouse 13.4.1 · 모바일&quot;,&quot;전후 각 5회 중앙값 · 2026.08&quot;],&quot;limits&quot;:&quot;7차 변경 묶음의 결과 · FCP는 2.10→2.40초로 증가&quot;,&quot;context&quot;:&quot;7차 · 모바일 Lighthouse · 각 5회 중앙값&quot;,&quot;displayValues&quot;:&quot;6.92초 → 3.46초&quot;},{&quot;id&quot;:&quot;transfer&quot;,&quot;round&quot;:7,&quot;title&quot;:&quot;첫 화면 총 전송량&quot;,&quot;before&quot;:1606640,&quot;after&quot;:433644,&quot;unit&quot;:&quot;B&quot;,&quot;beforeLabel&quot;:&quot;1,606,640B&quot;,&quot;afterLabel&quot;:&quot;433,644B&quot;,&quot;delta&quot;:&quot;73.0% 감소&quot;,&quot;action&quot;:&quot;전체 글꼴 지연 로드 · SVG 압축&quot;,&quot;conditions&quot;:[&quot;Lighthouse 13.4.1 · 모바일&quot;,&quot;전후 각 5회 중앙값 · 2026.08&quot;],&quot;limits&quot;:&quot;현재 운영 전송량이 아닌 과거 빌드 비교&quot;,&quot;context&quot;:&quot;7차 · 모바일 Lighthouse · 각 5회 중앙값&quot;,&quot;displayValues&quot;:&quot;1,606,640B → 433,644B&quot;},{&quot;id&quot;:&quot;javascript&quot;,&quot;round&quot;:4,&quot;title&quot;:&quot;메인 JavaScript · gzip&quot;,&quot;before&quot;:214803,&quot;after&quot;:114888,&quot;unit&quot;:&quot;B&quot;,&quot;beforeLabel&quot;:&quot;214,803B&quot;,&quot;afterLabel&quot;:&quot;114,888B&quot;,&quot;delta&quot;:&quot;46.5% 감소&quot;,&quot;action&quot;:&quot;패널 지연 로드 · 라이브러리 정리&quot;,&quot;conditions&quot;:[&quot;2026.08.04 당시 프로덕션 빌드 기록&quot;,&quot;내부 리비전 2328a82의 작업 기록 기준&quot;],&quot;limits&quot;:&quot;현재 운영 번들의 크기가 아님&quot;,&quot;context&quot;:&quot;4차 · 2026.08.04 당시 빌드&quot;,&quot;displayValues&quot;:&quot;214,803B → 114,888B&quot;},{&quot;id&quot;:&quot;tbt&quot;,&quot;round&quot;:7,&quot;title&quot;:&quot;데스크톱 초기 차단 · TBT&quot;,&quot;before&quot;:860,&quot;after&quot;:0,&quot;unit&quot;:&quot;ms&quot;,&quot;beforeLabel&quot;:&quot;860ms&quot;,&quot;afterLabel&quot;:&quot;0ms&quot;,&quot;delta&quot;:&quot;100.0% 감소&quot;,&quot;action&quot;:&quot;게임 선택까지 월드 초기화 유예&quot;,&quot;conditions&quot;:[&quot;Lighthouse 13.4.1 · 데스크톱 배포 PSI&quot;,&quot;2026.08.25 · 개선 전 1회 · 개선 후 2회 모두 0ms&quot;],&quot;limits&quot;:&quot;모바일 비교와 별도 측정 · 전체 JavaScript 실행 시간이나 CPU 사용량이 0이라는 뜻 아님&quot;,&quot;context&quot;:&quot;7차 · 데스크톱 PSI · 개선 후 2회&quot;,&quot;displayValues&quot;:&quot;860ms → 0ms&quot;},{&quot;id&quot;:&quot;paused&quot;,&quot;round&quot;:6,&quot;title&quot;:&quot;모바일 패널 뒤 drawImage&quot;,&quot;before&quot;:36720,&quot;after&quot;:238,&quot;unit&quot;:&quot;drawImage 호출/2초&quot;,&quot;beforeLabel&quot;:&quot;36,720&quot;,&quot;afterLabel&quot;:&quot;238&quot;,&quot;delta&quot;:&quot;99.4% 감소&quot;,&quot;action&quot;:&quot;완성 프레임 캡처 · 저장본 재사용&quot;,&quot;conditions&quot;:[&quot;일시정지 2초 구간 · 동일 빌드 3회 중앙값&quot;,&quot;2026.08.13 기록 · 상세 환경 미보존&quot;],&quot;limits&quot;:&quot;일시정지 상태만 비교 · 게임 FPS 지표 아님&quot;,&quot;context&quot;:&quot;6차 · 일시정지 · 당시 3회 중앙값&quot;,&quot;displayValues&quot;:&quot;36,720 → 238회 / 2초&quot;},{&quot;id&quot;:&quot;pacing&quot;,&quot;round&quot;:1,&quot;title&quot;:&quot;20ms 초과 프레임 간격&quot;,&quot;before&quot;:22,&quot;after&quot;:0,&quot;unit&quot;:&quot;20ms 초과 프레임 간격/10초&quot;,&quot;beforeLabel&quot;:&quot;22&quot;,&quot;afterLabel&quot;:&quot;0&quot;,&quot;delta&quot;:&quot;100.0% 감소&quot;,&quot;action&quot;:&quot;주사율 기반 주기 · RAF 누락 보정&quot;,&quot;conditions&quot;:[&quot;120Hz 모바일 · 10초 관측 구간&quot;,&quot;2026.07.13~14 기록 · 상세 기기·브라우저·원시 trace 미보존&quot;],&quot;limits&quot;:&quot;관측 구간 내 20ms 초과 간격 빈도 · 모든 환경의 끊김 제거나 FPS 개선율 아님&quot;,&quot;context&quot;:&quot;1차 · 120Hz 모바일 · 10초 측정&quot;,&quot;displayValues&quot;:&quot;22 → 0회 / 10초&quot;}],&quot;caveat&quot;:&quot;7차 FCP 2.10초 → 2.40초 (+0.30초)&quot;}</metadata>
+<style>
+text{font-family:"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif}
+.numeric{font-variant-numeric:tabular-nums}
+.result-value{fill:#333d4b;font-weight:550}
+.guide{fill:none;stroke:#e5e8eb;stroke-width:1;stroke-dasharray:3 6}
+.measure{transform-origin:0 0}
+@media (prefers-reduced-motion: no-preference){
+ .measure{animation:metric-shrink 12s cubic-bezier(.23,1,.32,1) infinite both,metric-cycle 12s linear infinite both;animation-delay:var(--delay)}
+}
+/* 값은 고정한다. 중간 막대 길이는 측정값이 아니며, 마지막 비율을 오래 유지한다. */
+@keyframes metric-shrink{0%,3%{transform:scaleX(1)}17%,100%{transform:scaleX(var(--ratio))}}
+@keyframes metric-cycle{0%,98%,100%{opacity:0}3%,95%{opacity:1}}
+@media (prefers-reduced-motion: reduce){.measure{animation:none;opacity:1}}
+</style>
+<rect x="1" y="1" width="638" height="1918" fill="#fff" rx="10" stroke="#e5e8eb"/>
+<g id="brand-icon" transform="translate(20.7 25.84) scale(1.54)" shape-rendering="crispEdges" aria-hidden="true">
+  <path fill="#7f2f2f" d="M7 9h10v2H7zM5 11h14v4H5zM7 15h12v2H7zM9 17h8v2H9z" />
+  <path fill="#943936" d="M7 9h2v6H7z" />
+  <path fill="#a8433d" d="M9 9h2v2H9zm6 0h2v2h-2zM9 11h4v2H9zm6 0h4v2h-4zM7 13h2v2H7zm10 0h2v4h-2z" />
+  <path fill="#b9564b" d="M9 13h4v2H9zm6 0h2v2h-2zM11 15h6v2h-6z" />
+  <path fill="#a8433d" d="M13 11h2v4h-2zM9 15h2v2H9z" />
+  <path fill="#2f5137" d="M11 5h2v6h-2z" />
+  <path fill="#456d4a" d="M7 5h2v2H7zm2 2h2v2H9zm4 0h4v2h-4zm0 2h2v2h-2z" />
+</g>
+<text x="63" y="56" font-size="30" font-weight="750" fill="#191f28">DOMADO WORLD</text>
+<text x="608" y="55" font-size="20" font-weight="600" fill="#33664e" text-anchor="end">성능과 효율</text>
+<path d="M32 80H608" fill="none" stroke="#e5e8eb"/>
+<text x="32" y="132" font-size="26" font-weight="500" fill="#191f28">1~7차 · 대표 성능 지표 6개</text>
+<text x="32" y="170" font-size="22" font-weight="400" fill="#566270">각 항목의 개선 전 = 100</text>
+<rect x="32" y="200" width="12" height="12" fill="#8b95a1" />
+<text x="56" y="213" font-size="22" font-weight="400" fill="#566270">개선 전</text>
+<rect x="232" y="200" width="12" height="12" fill="#33664e" />
+<text x="256" y="213" font-size="22" font-weight="400" fill="#566270">개선 후</text>
+<text x="608" y="213" font-size="22" font-weight="400" fill="#566270" text-anchor="end">감소율</text>
+<path d="M32 240H608" fill="none" stroke="#e5e8eb"/>
+<g id="metric-lcp" data-before="6.92" data-after="3.46" data-round="7" data-unit="초">
+<text x="32" y="292" font-size="28" font-weight="650" fill="#191f28">모바일 콘텐츠 표시 · LCP</text>
+<text x="608" y="334" font-size="36" font-weight="650" fill="#33664e" text-anchor="end" class="numeric">50.0%</text>
+<text x="32" y="334" font-size="24" font-weight="400" fill="#566270" class="numeric">6.92초 → <tspan class="result-value">3.46초</tspan></text>
+<text x="32" y="369" font-size="21" font-weight="400" fill="#566270">7차 · 모바일 Lighthouse · 각 5회 중앙값</text>
+<text x="32" y="401" font-size="21" font-weight="400" fill="#566270">글꼴 로드 시점 · 초기 자산 최적화</text>
+<path d="M32 423V480" stroke="#8b95a1"/>
+<path d="M320 423V480M608 423V480" class="guide"/>
+<rect x="32" y="428" width="576" height="14" fill="#8b95a1" class="baseline" data-series="before"/>
+<g transform="translate(32 458)">
+<rect x="0" y="0" width="576" height="14" fill="#33664e" class="measure" data-series="after" style="transform:scaleX(0.5000000000);--ratio:0.5000000000;--delay:0.00s"/>
+</g>
+</g>
+<path d="M32 499H608" fill="none" stroke="#eef1f5"/>
+<g id="metric-transfer" data-before="1606640" data-after="433644" data-round="7" data-unit="B">
+<text x="32" y="528" font-size="28" font-weight="650" fill="#191f28">첫 화면 총 전송량</text>
+<text x="608" y="570" font-size="36" font-weight="650" fill="#33664e" text-anchor="end" class="numeric">73.0%</text>
+<text x="32" y="570" font-size="24" font-weight="400" fill="#566270" class="numeric">1,606,640B → <tspan class="result-value">433,644B</tspan></text>
+<text x="32" y="605" font-size="21" font-weight="400" fill="#566270">7차 · 모바일 Lighthouse · 각 5회 중앙값</text>
+<text x="32" y="637" font-size="21" font-weight="400" fill="#566270">전체 글꼴 지연 로드 · SVG 압축</text>
+<path d="M32 659V716" stroke="#8b95a1"/>
+<path d="M320 659V716M608 659V716" class="guide"/>
+<rect x="32" y="664" width="576" height="14" fill="#8b95a1" class="baseline" data-series="before"/>
+<g transform="translate(32 694)">
+<rect x="0" y="0" width="576" height="14" fill="#33664e" class="measure" data-series="after" style="transform:scaleX(0.2699073844);--ratio:0.2699073844;--delay:0.06s"/>
+</g>
+</g>
+<path d="M32 735H608" fill="none" stroke="#eef1f5"/>
+<g id="metric-javascript" data-before="214803" data-after="114888" data-round="4" data-unit="B">
+<text x="32" y="764" font-size="28" font-weight="650" fill="#191f28">메인 JavaScript · gzip</text>
+<text x="608" y="806" font-size="36" font-weight="650" fill="#33664e" text-anchor="end" class="numeric">46.5%</text>
+<text x="32" y="806" font-size="24" font-weight="400" fill="#566270" class="numeric">214,803B → <tspan class="result-value">114,888B</tspan></text>
+<text x="32" y="841" font-size="21" font-weight="400" fill="#566270">4차 · 2026.08.04 당시 빌드</text>
+<text x="32" y="873" font-size="21" font-weight="400" fill="#566270">패널 지연 로드 · 라이브러리 정리</text>
+<path d="M32 895V952" stroke="#8b95a1"/>
+<path d="M320 895V952M608 895V952" class="guide"/>
+<rect x="32" y="900" width="576" height="14" fill="#8b95a1" class="baseline" data-series="before"/>
+<g transform="translate(32 930)">
+<rect x="0" y="0" width="576" height="14" fill="#33664e" class="measure" data-series="after" style="transform:scaleX(0.5348528652);--ratio:0.5348528652;--delay:0.12s"/>
+</g>
+</g>
+<path d="M32 971H608" fill="none" stroke="#eef1f5"/>
+<g id="metric-tbt" data-before="860" data-after="0" data-round="7" data-unit="ms">
+<text x="32" y="1000" font-size="28" font-weight="650" fill="#191f28">데스크톱 초기 차단 · TBT</text>
+<text x="608" y="1042" font-size="36" font-weight="650" fill="#33664e" text-anchor="end" class="numeric">100.0%</text>
+<text x="32" y="1042" font-size="24" font-weight="400" fill="#566270" class="numeric">860ms → <tspan class="result-value">0ms</tspan></text>
+<text x="32" y="1077" font-size="21" font-weight="400" fill="#566270">7차 · 데스크톱 PSI · 개선 후 2회</text>
+<text x="32" y="1109" font-size="21" font-weight="400" fill="#566270">게임 선택까지 월드 초기화 유예</text>
+<path d="M32 1131V1188" stroke="#8b95a1"/>
+<path d="M320 1131V1188M608 1131V1188" class="guide"/>
+<rect x="32" y="1136" width="576" height="14" fill="#8b95a1" class="baseline" data-series="before"/>
+<g transform="translate(32 1166)">
+<rect x="0" y="0" width="576" height="14" fill="#33664e" class="measure" data-series="after" style="transform:scaleX(0.0000000000);--ratio:0.0000000000;--delay:0.18s"/>
+</g>
+</g>
+<path d="M32 1207H608" fill="none" stroke="#eef1f5"/>
+<g id="metric-paused" data-before="36720" data-after="238" data-round="6" data-unit="drawImage 호출/2초">
+<text x="32" y="1236" font-size="28" font-weight="650" fill="#191f28">모바일 패널 뒤 drawImage</text>
+<text x="608" y="1278" font-size="36" font-weight="650" fill="#33664e" text-anchor="end" class="numeric">99.4%</text>
+<text x="32" y="1278" font-size="24" font-weight="400" fill="#566270" class="numeric">36,720 → <tspan class="result-value">238회</tspan> / 2초</text>
+<text x="32" y="1313" font-size="21" font-weight="400" fill="#566270">6차 · 일시정지 · 당시 3회 중앙값</text>
+<text x="32" y="1345" font-size="21" font-weight="400" fill="#566270">완성 프레임 캡처 · 저장본 재사용</text>
+<path d="M32 1367V1424" stroke="#8b95a1"/>
+<path d="M320 1367V1424M608 1367V1424" class="guide"/>
+<rect x="32" y="1372" width="576" height="14" fill="#8b95a1" class="baseline" data-series="before"/>
+<g transform="translate(32 1402)">
+<rect x="0" y="0" width="576" height="14" fill="#33664e" class="measure" data-series="after" style="transform:scaleX(0.0064814815);--ratio:0.0064814815;--delay:0.24s"/>
+</g>
+</g>
+<path d="M32 1443H608" fill="none" stroke="#eef1f5"/>
+<g id="metric-pacing" data-before="22" data-after="0" data-round="1" data-unit="20ms 초과 프레임 간격/10초">
+<text x="32" y="1472" font-size="28" font-weight="650" fill="#191f28">20ms 초과 프레임 간격</text>
+<text x="608" y="1514" font-size="36" font-weight="650" fill="#33664e" text-anchor="end" class="numeric">100.0%</text>
+<text x="32" y="1514" font-size="24" font-weight="400" fill="#566270" class="numeric">22 → <tspan class="result-value">0회</tspan> / 10초</text>
+<text x="32" y="1549" font-size="21" font-weight="400" fill="#566270">1차 · 120Hz 모바일 · 10초 측정</text>
+<text x="32" y="1581" font-size="21" font-weight="400" fill="#566270">주사율 기반 주기 · RAF 누락 보정</text>
+<path d="M32 1603V1660" stroke="#8b95a1"/>
+<path d="M320 1603V1660M608 1603V1660" class="guide"/>
+<rect x="32" y="1608" width="576" height="14" fill="#8b95a1" class="baseline" data-series="before"/>
+<g transform="translate(32 1638)">
+<rect x="0" y="0" width="576" height="14" fill="#33664e" class="measure" data-series="after" style="transform:scaleX(0.0000000000);--ratio:0.0000000000;--delay:0.30s"/>
+</g>
+</g>
+<text x="32" y="1688" font-size="20" font-weight="400" fill="#566270" text-anchor="middle">0</text>
+<text x="320" y="1688" font-size="20" font-weight="400" fill="#566270" text-anchor="middle">50</text>
+<text x="608" y="1688" font-size="20" font-weight="400" fill="#566270" text-anchor="middle">100</text>
+<path d="M32 1718H608" fill="none" stroke="#e5e8eb"/>
+<text x="32" y="1756" font-size="22" font-weight="400" fill="#566270">2026년 7~8월 기록 · 현재 배포 실측 아님</text>
+<text x="32" y="1789" font-size="22" font-weight="400" fill="#566270">데스크톱 TBT · 모바일 LCP는 별도 측정</text>
+<text x="32" y="1822" font-size="22" font-weight="400" fill="#566270">1차는 간격 빈도 · 6차는 정지 중 호출 수</text>
+<text x="32" y="1860" font-size="22" font-weight="500" fill="#191f28">7차 FCP 2.10 → 2.40초 (+0.30초)</text>
+<text x="32" y="1893" font-size="21" font-weight="400" fill="#566270">상세 환경과 기록의 한계는 본문에 정리했습니다.</text>
+</svg>
